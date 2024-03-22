@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://e66ihhmslhqj"]
+
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_ofnfa"]
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="2_0qwyy"]
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Arrow.gd" id="3_n5jwk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Rectangle" type="Node2D" parent="."]
+position = Vector2(256, 256)
+script = ExtResource("1_ofnfa")
+size = Vector2(200, 200)
+
+[node name="Ellipse" type="Node2D" parent="."]
+position = Vector2(576, 256)
+script = ExtResource("2_0qwyy")
+size = Vector2(200, 200)
+
+[node name="Arrow" type="Node2D" parent="."]
+position = Vector2(832, 256)
+script = ExtResource("3_n5jwk")
