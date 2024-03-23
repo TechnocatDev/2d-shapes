@@ -26,18 +26,20 @@ func _exit_tree() -> void:
 	remove_undo_redo_inspector_hook_callback(undo_redo_callback)
 
 
+#== plugin ==
 var undo_redo_callback = func (undo_redo: Object, modified_object:Object, property: String, new_value: Variant):
 	if modified_object is GeometricShape:
 		update_overlays()
 
 
-#== plugin ==
 func _handles(object : Object) -> bool:
 	return object is GeometricShape
 
 
 func _edit(object: Object) -> void:
-	selected_shape = object
+	if object is GeometricShape:
+		selected_shape = object
+		update_overlays()
 
 
 func _make_visible(visible : bool) -> void:

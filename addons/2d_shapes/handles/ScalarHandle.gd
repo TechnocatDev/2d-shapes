@@ -48,9 +48,9 @@ func drag(event: InputEvent) -> void:
 
 func end_drag(undo_redo: EditorUndoRedoManager):
 	undo_redo.create_action("Set %s to %s" % [scalar, shape[scalar]])
-	undo_redo.add_do_property(shape, "target", shape[scalar])
+	undo_redo.add_do_property(shape, scalar, shape[scalar])
 	undo_redo.add_do_method(shape, "generate_geometry")
-	undo_redo.add_undo_property(shape, "target", drag_start[scalar])
+	undo_redo.add_undo_property(shape, scalar, drag_start[scalar])
 	undo_redo.add_undo_method(shape, "generate_geometry")
 	
 	undo_redo.commit_action()

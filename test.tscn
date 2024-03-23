@@ -1,21 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://e66ihhmslhqj"]
+[gd_scene load_steps=6 format=3 uid="uid://e66ihhmslhqj"]
 
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_ofnfa"]
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="2_0qwyy"]
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Arrow.gd" id="3_n5jwk"]
 
+[sub_resource type="Gradient" id="Gradient_tfbnv"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_275jn"]
+gradient = SubResource("Gradient_tfbnv")
+
 [node name="Node2D" type="Node2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(853, 261)
+texture = SubResource("GradientTexture2D_275jn")
+
 [node name="Rectangle" type="Node2D" parent="."]
-position = Vector2(256, 256)
+position = Vector2(608, 256)
 script = ExtResource("1_ofnfa")
 size = Vector2(200, 200)
+corner_radius = 40.0
+style = 2
+outline_width = 6
 
 [node name="Ellipse" type="Node2D" parent="."]
-position = Vector2(576, 256)
+position = Vector2(872, 256)
 script = ExtResource("2_0qwyy")
 size = Vector2(200, 200)
+style = 2
+outline_width = 6
 
 [node name="Arrow" type="Node2D" parent="."]
-position = Vector2(832, 256)
+position = Vector2(144, 256)
 script = ExtResource("3_n5jwk")
+target = Vector2(300, 0)
+head_length = 150.0
+head_width = 150.0
+stem_width = 75.0
+style = 2
+outline_width = 5
