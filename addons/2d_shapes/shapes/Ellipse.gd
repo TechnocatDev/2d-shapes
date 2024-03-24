@@ -46,8 +46,7 @@ func generate_geometry():
 	for i in range(polygon.size()):
 		polygon[i][size.max_axis_index()] *= max(size.x, size.y) / min(size.x, size.y)
 	
-	if (Engine.is_editor_hint()):
-		queue_redraw()
+	queue_redraw()
 
 
 func draw_handles(overlay: Control) -> Array:

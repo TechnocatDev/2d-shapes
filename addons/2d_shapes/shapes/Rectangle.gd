@@ -59,8 +59,7 @@ func generate_geometry():
 	polygon.append_array(bottom_left_corner())
 	for i in range(polygon.size()):
 		polygon[i] -= size / 2
-	if (Engine.is_editor_hint()):
-		queue_redraw()
+	queue_redraw()
 
 
 func top_left_corner() -> PackedVector2Array:
