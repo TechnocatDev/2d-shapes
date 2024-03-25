@@ -1,4 +1,4 @@
-# ![2d_shapes icon](./icon.svg) 2d-shapes 
+# ![2d_shapes icon](./icon.svg) 2D Shapes 
 
 <span style="font-size:1.5em;">2D geometric shapes for prototyping and animating in Godot
 </span>
