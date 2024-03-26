@@ -77,12 +77,13 @@ func drag(event: InputEvent) -> void:
 	var drag_delta: Vector2 = event_position - drag_start['mouse_position']
 	
 	var new_size = drag_start['size'] + drag_delta * size_transform
-	if shape.is_fixed_aspect_ratio() or keep_aspect_ratio:
+	if keep_aspect_ratio:
 		var fit_x := Vector2(new_size.x, new_size.x / drag_start['size'].aspect())
 		var fit_y := Vector2(new_size.y * drag_start['size'].aspect(), new_size.y)
-		shape.size = fit_x if size_transform.x else fit_y
-	else:
-		shape.size = new_size
+		new_size = fit_x if size_transform.x else fit_y
+	# Reset the size first to avoid glitching
+	shape.size = drag_start['size']
+	shape.size = new_size
 
 	var delta_size = shape.size - drag_start['size']
 	# Transform proportionally to size change

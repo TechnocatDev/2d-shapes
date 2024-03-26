@@ -21,7 +21,7 @@ func _ready():
 			var fit_x :=  Vector2(value.x, value.x)
 			var fit_y := Vector2(value.y, value.y)
 			
-			value = fit_x if size.y == value.y else fit_y
+			value = fit_x if is_equal_approx(size.y, value.y) else fit_y
 		
 		size.x = clamp(value.x, 3, 10000)
 		size.y = clamp(value.y, 3, 10000)
@@ -34,10 +34,6 @@ func _ready():
 	set(value):
 		circle = value
 		size = size
-
-
-func is_fixed_aspect_ratio() -> bool:
-	return circle
 
 
 func generate_geometry():

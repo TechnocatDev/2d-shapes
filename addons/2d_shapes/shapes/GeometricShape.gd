@@ -80,8 +80,3 @@ func draw_handles(overlay: Control) -> Array:
 func generate_geometry() -> void:
 	printerr('Function generate_geometry was not implemented')
 
-
-func is_fixed_aspect_ratio() -> bool:
-	printerr('Function is_fixed_aspect_ratio was not implemented')
-	return false
-

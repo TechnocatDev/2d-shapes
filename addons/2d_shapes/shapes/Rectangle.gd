@@ -47,10 +47,6 @@ func _ready():
 		size = size
 
 
-func is_fixed_aspect_ratio() -> bool:
-	return square
-
-
 func generate_geometry():
 	polygon = []
 	polygon.append_array(top_left_corner())
