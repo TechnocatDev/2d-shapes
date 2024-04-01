@@ -1,5 +1,5 @@
 @tool
-@icon("res://addons/2d_shapes/Arrow.svg")
+@icon("res://addons/2d_shapes/Polygon.svg")
 class_name Polygon extends GeometricShape
 
 const GeometricShape = preload("GeometricShape.gd")
