@@ -16,6 +16,8 @@ func _enter_tree() -> void:
 	add_custom_type("Rectangle", "Node2D", preload("./shapes/Rectangle.gd"), preload("Rectangle.svg"))
 	add_custom_type("Ellipse", "Node2D", preload("./shapes/Ellipse.gd"), preload("Ellipse.svg"))
 	add_custom_type("Arrow", "Node2D", preload("./shapes/Arrow.gd"), preload("Arrow.svg"))
+	add_custom_type("Triangle", "Node2D", preload("./shapes/Triangle.gd"), preload("Arrow.svg"))
+	add_custom_type("Polygon", "Node2D", preload("./shapes/Polygon.gd"), preload("Arrow.svg"))
 	add_undo_redo_inspector_hook_callback(undo_redo_callback)
 
 
@@ -23,6 +25,8 @@ func _exit_tree() -> void:
 	remove_custom_type("Rectangle")
 	remove_custom_type("Ellipse")
 	remove_custom_type("Arrow")
+	remove_custom_type("Triangle")
+	remove_custom_type("Polygon")
 	remove_undo_redo_inspector_hook_callback(undo_redo_callback)
 
 
