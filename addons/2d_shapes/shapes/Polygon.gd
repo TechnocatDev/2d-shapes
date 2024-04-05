@@ -16,7 +16,6 @@ const default_sides := 5
 	get:
 		return sides
 	set(value):
-		# TODO: Limit sides based on corner radius
 		sides = clamp(value, 3, 20)
 		if regular:
 			size = size
