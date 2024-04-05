@@ -16,7 +16,7 @@ const triangle_height_proportion = sqrt(3.0) / 2.0
 	get:
 		return size
 	set(value):
-		if type == 2:
+		if type == 1:
 			var corners = 2 * corner_radius
 			var fit_x :=  Vector2(value.x, ((value.x - corners) * triangle_height_proportion) + corners)
 			var fit_y := Vector2(((value.y - corners) / triangle_height_proportion) + corners, value.y)
@@ -33,12 +33,12 @@ const triangle_height_proportion = sqrt(3.0) / 2.0
 		return corner_radius
 	set(value):
 		corner_radius = clamp(value, 0.0, size[size.min_axis_index()] / 2)
-		if type == 2:
+		if type == 1:
 			size = size
 		generate_geometry()
 
 
-@export_enum("Isoceles", "Square", "Regular") var type: int = 0:
+@export_enum("▲ Isoceles", "▲ Regular", "◢ Lower Right", "◣ Lower Left", "◤ Upper Left", "◥ Upper Right") var type: int = 0:
 	get:
 		return type
 	set(value):
@@ -52,8 +52,8 @@ func _ready():
 
 
 func generate_geometry():
-	if type == 1:
-		polygon = generate_square()
+	if type > 1:
+		polygon = generate_right()
 	else:
 		polygon = generate_isoceles()
 	queue_redraw()
@@ -78,23 +78,46 @@ func generate_isoceles() -> PackedVector2Array:
 	return points
 
 
-func generate_square() -> PackedVector2Array:
+func generate_right() -> PackedVector2Array:
 	var points: PackedVector2Array = []
 	# Find circles' centers
-	var left_circle_center = Vector2(-size.x / 2 + corner_radius, size.y / 2 - corner_radius)
-	var top_circle_center = Vector2(-size.x / 2 + corner_radius, -size.y / 2 + corner_radius)
-	var right_circle_center = Vector2(size.x / 2 - corner_radius, size.y / 2 - corner_radius)
+	var centers := right_triangle_offsets()
 	
-	# Left
-	var left_start_angle = 3 * PI / 2
-	var left_end_angle = 2 * PI / 2
-	points.append_array(arc(left_start_angle, left_end_angle, left_circle_center, corner_radius))
-	# Top
-	var top_end_angle = -top_circle_center.angle_to_point(right_circle_center) + PI / 2
-	points.append_array(arc(left_end_angle, top_end_angle, top_circle_center, corner_radius))
-	# Right
-	points.append_array(arc(top_end_angle, left_start_angle, right_circle_center, corner_radius))
+	for i in range(3):
+		var previous = centers[i - 1]
+		var current = centers[i]
+		var next = centers[(i + 1) % 3]
+
+		var angle_to_previous = -current.angle_to_point(previous) - PI / 2
+		var angle_to_next = -current.angle_to_point(next) + PI / 2
+		points.append_array(arc(angle_to_previous, angle_to_next, current, corner_radius))
+	
 	return points
+
+
+func right_triangle_offsets() -> PackedVector2Array:
+	var half_size_minus_corner_radius := size / 2 - Vector2.ONE * corner_radius
+
+	# Avoid zero size, because it causes triangulation error
+	half_size_minus_corner_radius.x = max(half_size_minus_corner_radius.x, 0.01)
+	half_size_minus_corner_radius.y = max(half_size_minus_corner_radius.y, 0.01)
+
+	var offsets: PackedVector2Array = [
+		Vector2(-half_size_minus_corner_radius.x, -half_size_minus_corner_radius.y),
+		Vector2(half_size_minus_corner_radius.x, -half_size_minus_corner_radius.y),
+		Vector2(half_size_minus_corner_radius.x, half_size_minus_corner_radius.y),
+		Vector2(-half_size_minus_corner_radius.x, half_size_minus_corner_radius.y)
+	]
+	if type == 2:
+		return [offsets[1], offsets[2], offsets[3]]
+	if type == 3:
+		return [offsets[0], offsets[2], offsets[3]]
+	if type == 4:
+		return [offsets[0], offsets[1], offsets[3]]
+	if type == 5:
+		return [offsets[0], offsets[1], offsets[2]]
+	printerr("Unknown triangle type", type)
+	return [offsets[1], offsets[2], offsets[3]]
 
 
 func draw_handles(overlay: Control) -> Array:
