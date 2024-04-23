@@ -7,10 +7,10 @@ const TargetHandle = preload("../handles/TargetHandle.gd")
 const ArrowScalarHandle = preload("../handles/ArrowScalarHandle.gd")
 
 
-const default_corner_radius := 10.0
+const default_corner_radius := 0.0
 
 
-@export var target: Vector2 = Vector2.RIGHT * default_corner_radius * 10:
+@export var target: Vector2 = Vector2.RIGHT * 200:
 	get:
 		return target
 	set(value):
@@ -27,7 +27,7 @@ const default_corner_radius := 10.0
 		generate_geometry()
 
 
-@export var head_length: float = default_corner_radius * 5:
+@export var head_length: float = 60:
 	get:
 		return head_length
 	set(value):
@@ -36,7 +36,7 @@ const default_corner_radius := 10.0
 		generate_geometry()
 
 
-@export var head_width: float = default_corner_radius * 6:
+@export var head_width: float = 60:
 	get:
 		return head_width
 	set(value):
@@ -44,7 +44,7 @@ const default_corner_radius := 10.0
 		generate_geometry()
 
 
-@export var stem_width: float = default_corner_radius * 2:
+@export var stem_width: float = 30:
 	get:
 		return stem_width
 	set(value):

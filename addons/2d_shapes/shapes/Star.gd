@@ -7,7 +7,6 @@ const SizeHandle = preload("../handles/SizeHandle.gd")
 const ScalarHandle = preload("../handles/ScalarHandle.gd")
 
 
-const default_size := 100.0
 const default_sides := 5
 
 
@@ -22,7 +21,7 @@ const default_sides := 5
 			generate_geometry()
 
 
-@export var size: Vector2 = Vector2(default_size, default_size):
+@export var size: Vector2 = Vector2(95.106, 95.106):
 	get:
 		return size
 	set(value):

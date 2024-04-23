@@ -7,7 +7,7 @@
 
 ## Features
 
-- Create rectangles, ellipses and arrows (more to come) just by adding a node.
+- Create rectangles, ellipses, arrows, triangles, stars and regular polygons just by adding a node.
 
   ![alt text](./docs/images/readme-1.png)
 

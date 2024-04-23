@@ -6,7 +6,7 @@ extends GeometricShape
 const GeometricShape = preload("GeometricShape.gd")
 const SizeHandle = preload("../handles/SizeHandle.gd")
 
-const default_size := 60.0
+const default_size := 100.0
 
 
 func _ready():

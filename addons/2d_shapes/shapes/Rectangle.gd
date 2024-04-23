@@ -8,8 +8,8 @@ const Handle = preload("../handles/Handle.gd")
 const SizeHandle = preload("../handles/SizeHandle.gd")
 const ScalarHandle = preload("../handles/ScalarHandle.gd")
 
-const default_corner_radius := 20.0
-const default_size := default_corner_radius * 3.0
+const default_corner_radius := 10.0
+const default_size := 100
 
 
 func _ready():

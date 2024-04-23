@@ -7,12 +7,11 @@ const SizeHandle = preload("../handles/SizeHandle.gd")
 const ScalarHandle = preload("../handles/ScalarHandle.gd")
 
 
-const default_corner_radius := 20.0
-const default_size := default_corner_radius * 3.0
+const default_corner_radius := 10
 const triangle_height_proportion = sqrt(3.0) / 2.0
 
 
-@export var size: Vector2 = Vector2(default_size, default_size):
+@export var size: Vector2 = Vector2(100, 89.282):
 	get:
 		return size
 	set(value):

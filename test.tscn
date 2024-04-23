@@ -1,42 +1,68 @@
-[gd_scene load_steps=6 format=3 uid="uid://e66ihhmslhqj"]
+[gd_scene load_steps=7 format=3 uid="uid://e66ihhmslhqj"]
 
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_ofnfa"]
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="2_0qwyy"]
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Arrow.gd" id="3_n5jwk"]
-
-[sub_resource type="Gradient" id="Gradient_tfbnv"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_275jn"]
-gradient = SubResource("Gradient_tfbnv")
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Triangle.gd" id="4_ri5iw"]
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Polygon.gd" id="5_cxw0p"]
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Star.gd" id="6_5q5gr"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(853, 261)
-texture = SubResource("GradientTexture2D_275jn")
-
 [node name="Rectangle" type="Node2D" parent="."]
-position = Vector2(608, 256)
+position = Vector2(568.471, 324.865)
 script = ExtResource("1_ofnfa")
-size = Vector2(200, 200)
-corner_radius = 40.0
-style = 2
-outline_width = 6
+size = Vector2(1196.94, 700.033)
+corner_radius = 0.0
+fill_color = Color(0.160784, 0.560784, 0.607843, 1)
+metadata/_edit_lock_ = true
 
-[node name="Ellipse" type="Node2D" parent="."]
-position = Vector2(872, 256)
-script = ExtResource("2_0qwyy")
-size = Vector2(200, 200)
+[node name="Rectangle2" type="Node2D" parent="."]
+position = Vector2(320, 342)
+script = ExtResource("1_ofnfa")
 style = 2
-outline_width = 6
+outline_width = 4
+fill_color = Color(0.780392, 0.478431, 0.117647, 1)
+outline_color = Color(0.423529, 0.2, 0.0117647, 1)
 
 [node name="Arrow" type="Node2D" parent="."]
-position = Vector2(144, 256)
+position = Vector2(395, 192)
 script = ExtResource("3_n5jwk")
-target = Vector2(300, 0)
-head_length = 150.0
-head_width = 150.0
-stem_width = 75.0
+target = Vector2(150, 0)
 style = 2
-outline_width = 5
+outline_width = 4
+fill_color = Color(0.796078, 0.8, 0.780392, 1)
+outline_color = Color(0.27451, 0.282353, 0.282353, 1)
+
+[node name="Ellipse" type="Node2D" parent="."]
+position = Vector2(620, 342)
+script = ExtResource("2_0qwyy")
+style = 2
+outline_width = 4
+fill_color = Color(0.764706, 0.729412, 0.662745, 1)
+outline_color = Color(0.439216, 0.309804, 0.243137, 1)
+
+[node name="Polygon" type="Node2D" parent="."]
+position = Vector2(470, 342)
+script = ExtResource("5_cxw0p")
+style = 2
+outline_width = 4
+fill_color = Color(0.576471, 0.145098, 0.00784314, 1)
+outline_color = Color(0.133333, 0.0156863, 0, 1)
+
+[node name="Triangle" type="Node2D" parent="."]
+position = Vector2(320, 192)
+script = ExtResource("4_ri5iw")
+size = Vector2(105.448, 94)
+type = 1
+style = 2
+outline_width = 4
+fill_color = Color(0.278431, 0.278431, 0.278431, 1)
+
+[node name="Star" type="Node2D" parent="."]
+position = Vector2(620, 192)
+script = ExtResource("6_5q5gr")
+style = 2
+outline_width = 4
+fill_color = Color(0.45098, 0.552941, 0.619608, 1)
+outline_color = Color(0.145098, 0.160784, 0.172549, 1)
