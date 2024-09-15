@@ -1,4 +1,4 @@
-extends Node2D
+class_name GeometricShape extends Node2D
 
 
 var polygon : PackedVector2Array
