@@ -1,7 +1,15 @@
+@tool
+@icon("res://addons/2d_shapes/icon.svg")
 class_name GeometricShape extends Node2D
 
 
-var polygon : PackedVector2Array
+var polygon: PackedVector2Array
+
+
+func _ready():
+	printerr('GeometricShape should not be used directly. Please use one of the actual shapes, e.g. Arrow or Ellipse.')
+	if not get_child_count():
+		queue_free()
 
 
 @export_enum("Filled", "Outline", "Filled + Outline") var style: int = 0:
@@ -79,4 +87,3 @@ func draw_handles(overlay: Control) -> Array:
 
 func generate_geometry() -> void:
 	printerr('Function generate_geometry was not implemented')
-
