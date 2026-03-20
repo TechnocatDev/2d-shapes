@@ -1,6 +1,6 @@
 @tool
 @icon("res://addons/2d_shapes/icon.svg")
-class_name GeometricShape extends Node2D
+@abstract class_name GeometricShape extends Node2D
 
 
 var polygon: PackedVector2Array
