@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://e66ihhmslhqj"]
 
-[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_ofnfa"]
-[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="2_0qwyy"]
-[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Arrow.gd" id="3_n5jwk"]
-[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Triangle.gd" id="4_ri5iw"]
-[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Polygon.gd" id="5_cxw0p"]
-[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Star.gd" id="6_5q5gr"]
+[ext_resource type="Script" uid="uid://cqmf7u8b7l1yx" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_ofnfa"]
+[ext_resource type="Script" uid="uid://1nxdvmnbplfo" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="2_0qwyy"]
+[ext_resource type="Script" uid="uid://61lry8hc331b" path="res://addons/2d_shapes/shapes/Arrow.gd" id="3_n5jwk"]
+[ext_resource type="Script" uid="uid://byfovq1rv3fsc" path="res://addons/2d_shapes/shapes/Triangle.gd" id="4_ri5iw"]
+[ext_resource type="Script" uid="uid://cvrinfk2v3jtk" path="res://addons/2d_shapes/shapes/Polygon.gd" id="5_cxw0p"]
+[ext_resource type="Script" uid="uid://cgniqsukkla33" path="res://addons/2d_shapes/shapes/Star.gd" id="6_5q5gr"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -53,7 +53,7 @@ outline_color = Color(0.133333, 0.0156863, 0, 1)
 [node name="Triangle" type="Node2D" parent="."]
 position = Vector2(320, 192)
 script = ExtResource("4_ri5iw")
-size = Vector2(105.448, 94)
+size = Vector2(105.448, 94.00014)
 type = 1
 style = 2
 outline_width = 4

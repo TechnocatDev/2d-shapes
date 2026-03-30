@@ -6,12 +6,6 @@
 var polygon: PackedVector2Array
 
 
-func _ready():
-	printerr('GeometricShape should not be used directly. Please use one of the actual shapes, e.g. Arrow or Ellipse.')
-	if not get_child_count():
-		queue_free()
-
-
 @export_enum("Filled", "Outline", "Filled + Outline") var style: int = 0:
 	get:
 		return style
@@ -80,10 +74,7 @@ func arc(start: float, end: float, center: Vector2, radius: float) -> PackedVect
 	return coords
 
 
-func draw_handles(overlay: Control) -> Array:
-	printerr('Function draw_handles was not implemented')
-	return []
+@abstract func draw_handles(overlay: Control) -> Array
 
 
-func generate_geometry() -> void:
-	printerr('Function generate_geometry was not implemented')
+@abstract func generate_geometry() -> void
